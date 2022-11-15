@@ -33,12 +33,15 @@ secret = random.randint (1, num)
 
 # 5. Create two more variables - one for the guess and one for the count of guesses 
 guess = None
-count = 1
+count = 0
 gamecount = 1
 # 6a. Create a new while loop below these variables that runs while the guess vairable is not equal to the random number
 while gamecount < 4:
+  secret = random.randint (1, num)
+  guess = None
   
-  while guess != secret and count<11:
+  
+  while guess != secret and count<15:
     guess = input ("Type a number between 1 and " + str(num) + ": ")
   # 6b. Update the guess variable with input from the user, prompt them by saying "Type a number between 1 and" add the number they orginally entered
     if guess.isdigit():
@@ -55,18 +58,24 @@ while gamecount < 4:
     if guess == secret:
         gamecount +=1
         print("You Win!!!")
+        count+=1
         if count==1:
-        
+          
           print("It took you",count,"try")
         else:
             print("It took you",count,"tries")
     else:
       print ("Try Again")
-  # 9. Let the user know how many guesses it took.  Print a message using the guess count number - make sure it makes sense no matter what the number is
+  
+      
+      # 9. Let the user know how many guesses it took.  Print a message using the guess count number - make sure it makes sense no matter what the number is
       count+=1
       if guess > secret:
          print("Lower")   
       else:
         print("Higher")
+
+
+            
 # 10. Make the game playable more than once, add a while loop around all of your code
 
